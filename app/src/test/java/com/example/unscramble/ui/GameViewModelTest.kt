@@ -9,7 +9,6 @@ import junit.framework.TestCase.assertTrue
 import org.junit.Assert.assertNotEquals
 import org.junit.Test
 
-
 class GameViewModelTest {
 
     private val viewModel = GameViewModel()
@@ -26,7 +25,6 @@ class GameViewModelTest {
         currentGameUiState = viewModel.uiState.value
         assertEquals(SCORE_AFTER_FIRST_CORRECT_ANSWER, currentGameUiState.score)
         assertFalse(currentGameUiState.isGuessedWordWrong)
-
     }
 
     @Test
