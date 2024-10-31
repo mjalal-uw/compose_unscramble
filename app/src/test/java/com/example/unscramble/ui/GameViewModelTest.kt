@@ -79,6 +79,20 @@ class GameViewModelTest {
 
     }
 
+    @Test
+    fun gameViewModel_WordSkipped_ScoreStaysSameWordCountIncremented() {
+        val initialUiState = viewModel.uiState.value
+        val initialScore = initialUiState.score
+        val initialWordCount = initialUiState.currentWordCount
+        viewModel.skip()
+        val uiStateAfterSkip = viewModel.uiState.value
+        val scoreAfterSkip = uiStateAfterSkip.score
+        val wordCountAfterSkip = uiStateAfterSkip.currentWordCount
+        assertEquals(initialScore, scoreAfterSkip)
+        assertEquals(initialWordCount + 1, wordCountAfterSkip)
+    }
+
+
     companion object {
         private const val SCORE_AFTER_FIRST_CORRECT_ANSWER = 20
         private const val SCORE_AFTER_FIRST_INCORRECT_ANSWER = 0
